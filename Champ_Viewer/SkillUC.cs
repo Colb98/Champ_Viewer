@@ -196,12 +196,14 @@ namespace Champ_Viewer
             String Html = web.DownloadString(Url);
             for(int i = 0; i < skill_list.Count; i++)
             {
-                string regex1 = regex + "\"" + skill_list[i].Replace(" (PBE)", "");
+                string regex1 = regex + "\"" + skill_list[i].Replace(" (PBE)", "").Split(':')[0];
                 string short_name = skill_list[i].Split(' ')[0];
                 short_name = short_name.Split(',')[0];
                 short_name = short_name.Split('.')[0];
                 short_name = short_name.Split('!')[0];
+                short_name = short_name.Split(':')[0];
                 short_name = short_name.Replace("'", "%27");
+
 
                 regex1 = regex1.Replace(" ", "\\s*");
                 regex1 = regex1.Replace("'", "&amp;#039;");
